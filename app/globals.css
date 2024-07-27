@@ -2,32 +2,518 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
 
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+    --background: 0 0% 100%;
+    --foreground: 240 10% 3.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 3.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 3.9%;
+
+    --primary: 240 5.9% 10%;
+    --primary-foreground: 0 0% 98%;
+
+    --secondary: 240 4.8% 95.9%;
+    --secondary-foreground: 240 5.9% 10%;
+
+    --muted: 240 4.8% 95.9%;
+    --muted-foreground: 240 3.8% 46.1%;
+
+    --accent: 240 4.8% 95.9%;
+    --accent-foreground: 240 5.9% 10%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 240 5.9% 90%;
+    --input: 240 5.9% 90%;
+    --ring: 240 10% 3.9%;
+
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 0 0% 98%;
+    --primary-foreground: 240 5.9% 10%;
+
+    --secondary: 240 3.7% 15.9%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
+
+    --accent: 240 3.7% 15.9%;
+    --accent-foreground: 0 0% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 240 4.9% 83.9%;
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
 }
 
 @layer utilities {
-  .text-balance {
-    text-wrap: balance;
+  ::-webkit-scrollbar {
+    border-radius: var(--radius);
+    width: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply border-border rounded-full bg-border transition-colors;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply rounded-full bg-neutral-600;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-neutral-700;
   }
 }
+
+/*
+* Variables
+ */
+html {
+  --auth-gradient1: #006fff;
+  --auth-gradient2: #2f379d;
+}
+
+body {
+  font-family: 'Red Hat Display', sans-serif;
+}
+
+.h2-bold {
+  @apply text-[24px] font-bold leading-[31.2px];
+}
+
+@layer utilities {
+  .background-light850_dark100 {
+    @apply bg-light-850 dark:bg-dark-100;
+  }
+
+
+  .background-light900_dark200 {
+    @apply bg-light-900 dark:bg-dark-200;
+  }
+
+  .background-light900_dark300 {
+    @apply bg-light-900 dark:bg-dark-300;
+  }
+
+  .background-light800_darkgradient {
+    @apply bg-light-800 dark:dark-gradient;
+  }
+
+  .background-light800_dark400 {
+    @apply bg-light-800 dark:bg-dark-400 !important;
+  }
+
+  .background-light700_dark400 {
+    @apply bg-light-700 dark:bg-dark-400;
+  }
+
+  .background-light700_dark300 {
+    @apply bg-light-700 dark:bg-dark-300;
+  }
+
+  .background-light800_dark400 {
+    @apply bg-light-800 dark:bg-dark-400;
+  }
+
+  .background-light800_dark300 {
+    @apply bg-light-800 dark:bg-dark-300 !important;
+  }
+
+  .text-dark100_light900 {
+    @apply text-dark-100 dark:text-light-900 !important;
+  }
+
+  .text-dark200_light900 {
+    @apply text-dark-200 dark:text-light-900;
+  }
+
+  .text-dark200_light800 {
+    @apply text-dark-200 dark:text-light-800 !important;
+  }
+
+  .text-dark300_light700 {
+    @apply text-dark-300 dark:text-light-700;
+  }
+
+  .text-dark400_light700 {
+    @apply text-dark-400 dark:text-light-700;
+  }
+
+  .text-dark500_light700 {
+    @apply text-dark-500 dark:text-light-700 !important;
+  }
+
+  .text-dark500_light500 {
+    @apply text-dark-500 dark:text-light-500;
+  }
+
+  .text-dark300_light900 {
+    @apply text-dark-300 dark:text-light-900 !important;
+  }
+
+  .text-dark400_light800 {
+    @apply text-dark-400 dark:text-light-800;
+  }
+
+  .text-light400_light500 {
+    @apply text-light-400 dark:text-light-500 !important;
+  }
+
+  .text-dark400_light500 {
+    @apply text-dark-400 dark:text-light-500;
+  }
+
+  .text-dark400_light900 {
+    @apply text-dark-400 dark:text-light-900 !important;
+  }
+
+  .text-light400_light500 {
+    @apply text-light-400 dark:text-light-500 !important;
+  }
+
+  .light-border {
+    @apply border-light-800 dark:border-dark-300;
+  }
+
+  .light-border-2 {
+    @apply border-light-700 dark:border-dark-400 !important;
+  }
+
+  .h1-bold {
+    @apply text-[30px] font-bold leading-[42px] tracking-tighter;
+  }
+
+  .h2-bold {
+    @apply text-[24px] font-bold leading-[31.2px];
+  }
+
+  .h2-semibold {
+    @apply text-[24px] font-semibold leading-[31.2px];
+  }
+
+  .h3-bold {
+    @apply text-[20px] font-bold leading-[26px];
+  }
+
+  .h3-semibold {
+    @apply text-[20px] font-semibold leading-[24.8px];
+  }
+
+  .base-medium {
+    @apply text-[18px] font-medium leading-[25.2px];
+  }
+
+  .base-semibold {
+    @apply text-[18px] font-semibold leading-[25.2px];
+  }
+
+  .base-bold {
+    @apply text-[18px] font-bold leading-[140%];
+  }
+
+  .paragraph-regular {
+    @apply text-[16px] font-normal leading-[22.4px];
+  }
+
+  .paragraph-medium {
+    @apply text-[16px] font-medium leading-[22.4px];
+  }
+
+  .paragraph-semibold {
+    @apply text-[16px] font-semibold leading-[20.8px];
+  }
+
+  .body-regular {
+    @apply text-[14px] font-normal leading-[19.6px];
+  }
+
+  .body-medium {
+    @apply text-[14px] font-medium leading-[18.2px];
+  }
+
+  .body-semibold {
+    @apply text-[14px] font-semibold leading-[18.2px];
+  }
+
+  .small-regular {
+    @apply text-[12px] font-normal leading-[15.6px];
+  }
+
+  .small-medium {
+    @apply text-[12px] font-medium leading-[15.6px];
+  }
+
+  .small-semibold {
+    @apply text-[12px] font-semibold leading-[15.6px];
+  }
+
+  .subtle-medium {
+    @apply text-[10px] font-medium leading-[13px] !important;
+  }
+
+  .subtle-regular {
+    @apply text-[10px] font-normal leading-[13px];
+  }
+
+  .placeholder {
+    @apply placeholder:text-light-400 dark:placeholder:text-light-500;
+  }
+
+  .invert-colors {
+    @apply invert dark:invert-0;
+  }
+
+  .shadow-light100_dark100 {
+    @apply shadow-light-100 dark:shadow-dark-100;
+  }
+
+  .shadow-light100_darknone {
+    @apply shadow-light-100 dark:shadow-none;
+  }
+}
+
+.primary-gradient {
+  background: linear-gradient(129deg, var(--auth-gradient1) 0%, var(--auth-gradient2) 100%);
+}
+
+.dark-gradient {
+  background: linear-gradient(
+          232deg,
+          rgba(23, 28, 35, 0.41) 0%,
+          rgba(19, 22, 28, 0.7) 100%
+  );
+}
+
+.auth-tablist {
+  width: 100%;
+  background-color: transparent;
+  justify-content: left;
+}
+
+.auth-tablist button {
+  @apply transition-colors;
+  font-size: 18px;
+}
+
+.auth-tablist button[aria-selected="true"] {
+  @apply bg-muted;
+  @apply py-1;
+
+  position: relative;
+  background: linear-gradient(129deg, var(--auth-gradient1) 0%, var(--auth-gradient2) 100%);
+}
+
+.auth-tablist button[aria-selected="true"]::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(129deg, var(--auth-gradient1) 0%, var(--auth-gradient2) 100%);
+  filter: blur(9px);
+  z-index: -1;
+  box-shadow: 5px 5px 25px rgba(0, 0, 0, 0.3);
+}
+
+.pa-default {
+  max-height: 100lvh;
+  /*overflow-y: hidden;*/
+}
+
+/*Start Animations*/
+@-webkit-keyframes animatetop {
+  from {
+    top: -300px;
+    opacity: 0;
+  }
+  to {
+    top: 0;
+    opacity: 1;
+  }
+}
+@keyframes animatetop {
+  from {
+    top: -300px;
+    opacity: 0;
+  }
+  to {
+    top: 0;
+    opacity: 1;
+  }
+}
+@-webkit-keyframes zoomIn {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale3d(0.3, 0.3, 0.3);
+    transform: scale3d(0.3, 0.3, 0.3);
+  }
+  50% {
+    opacity: 1;
+  }
+}
+@keyframes zoomIn {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale3d(0.3, 0.3, 0.3);
+    transform: scale3d(0.3, 0.3, 0.3);
+  }
+  50% {
+    opacity: 1;
+  }
+}
+/*End Animations*/
+/*
+-- Start BackGround Animation
+*/
+.area {
+  background: #4e54c8;
+  background: -webkit-linear-gradient(to left, #8f94fb, #4e54c8);
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  z-index: -1;
+}
+
+.circles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 96%;
+  overflow: hidden;
+}
+
+.circles li {
+  position: absolute;
+  display: block;
+  list-style: none;
+  width: 20px;
+  height: 20px;
+  background: rgba(255, 255, 255, 0.2);
+  animation: animate 25s linear infinite;
+  bottom: -150px;
+}
+
+.circles li:nth-child(1) {
+  left: 25%;
+  width: 80px;
+  height: 80px;
+  animation-delay: 0s;
+}
+
+.circles li:nth-child(2) {
+  left: 10%;
+  width: 20px;
+  height: 20px;
+  animation-delay: 2s;
+  animation-duration: 12s;
+}
+
+.circles li:nth-child(3) {
+  left: 70%;
+  width: 20px;
+  height: 20px;
+  animation-delay: 4s;
+}
+
+.circles li:nth-child(4) {
+  left: 40%;
+  width: 60px;
+  height: 60px;
+  animation-delay: 0s;
+  animation-duration: 18s;
+}
+
+.circles li:nth-child(5) {
+  left: 65%;
+  width: 20px;
+  height: 20px;
+  animation-delay: 0s;
+}
+
+.circles li:nth-child(6) {
+  left: 75%;
+  width: 110px;
+  height: 110px;
+  animation-delay: 3s;
+}
+
+.circles li:nth-child(7) {
+  left: 35%;
+  width: 150px;
+  height: 150px;
+  animation-delay: 7s;
+}
+
+.circles li:nth-child(8) {
+  left: 50%;
+  width: 25px;
+  height: 25px;
+  animation-delay: 15s;
+  animation-duration: 45s;
+}
+
+.circles li:nth-child(9) {
+  left: 20%;
+  width: 15px;
+  height: 15px;
+  animation-delay: 2s;
+  animation-duration: 35s;
+}
+
+.circles li:nth-child(10) {
+  left: 85%;
+  width: 150px;
+  height: 150px;
+  animation-delay: 0s;
+  animation-duration: 11s;
+}
+
+@keyframes animate {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 1;
+    border-radius: 0;
+  }
+
+  100% {
+    transform: translateY(-1000px) rotate(720deg);
+    opacity: 0;
+    border-radius: 50%;
+  }
+}
+/*
+-- End BackGround Animation
+*/
