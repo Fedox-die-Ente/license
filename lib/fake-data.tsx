@@ -12,7 +12,7 @@ export const successChartData = [
 export const successChartConfig = {
     desktop: {
         label: "Valid Requests",
-        color: "#25eb5d",
+        color: "#006fff",
     },
 } satisfies ChartConfig
 
@@ -28,7 +28,7 @@ export const invalidChartData = [
 export const invalidChartConfig = {
     desktop: {
         label: "Invalid Requests",
-        color: "#eb2525",
+        color: "#006fff",
     },
 } satisfies ChartConfig
 
