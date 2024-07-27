@@ -3,6 +3,7 @@ import {Webhook} from 'svix';
 import {headers} from 'next/headers';
 import {WebhookEvent} from '@clerk/nextjs/server';
 import {NextResponse} from 'next/server';
+import {createUser} from "@/lib/actions/user.action";
 
 export async function POST(req: Request) {
     // You can find this in the Clerk Dashboard -> Webhooks -> choose the webhook
@@ -54,25 +55,21 @@ export async function POST(req: Request) {
     // Get the ID and type
     const eventType = evt.type;
 
-    // Handle to event
-    // if (eventType === 'user.created') {
-    //     // get user data
-    //     const {id, email_addresses, image_url, username, first_name, last_name} =
-    //         evt.data;
-    //
-    //     // create a server action to create a user in the database
-    //
-    //     const mongoUser = await createUser({
-    //         clerkId: id,
-    //         name: `${first_name} ${last_name ? ` ${last_name}` : ''}`,
-    //         username: username!,
-    //         email: email_addresses[0].email_address,
-    //         picture: image_url
-    //     });
-    //
-    //     return NextResponse.json({messsage: 'OK', user: mongoUser});
-    // }
-    //
+    if (eventType === 'user.created') {
+        // get user data
+        const {id, email_addresses, image_url, username, first_name, last_name} =
+            evt.data;
+
+        // create a server action to create a user in the database
+
+        const mongoUser = await createUser({
+            clerkId: id,
+            username: username!,
+        });
+
+        return NextResponse.json({messsage: 'OK', user: mongoUser});
+    }
+
     // if (eventType === 'user.updated') {
     //     // get user data
     //     const {id, email_addresses, image_url, username, first_name, last_name} =
