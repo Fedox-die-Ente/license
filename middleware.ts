@@ -3,8 +3,9 @@ import {authMiddleware} from "@clerk/nextjs";
 export default authMiddleware({
     publicRoutes: [
         "/",
+        "/api/webhook",
     ],
-    ignoredRoutes: [],
+    ignoredRoutes: ['api/webhook'],
 });
 
 // @ts-ignore
