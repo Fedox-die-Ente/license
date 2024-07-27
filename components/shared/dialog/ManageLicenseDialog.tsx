@@ -45,7 +45,7 @@ const ManageLicense = ( { license } : any) => {
                     <h3 className="mb-4 font-medium">Registered IPs</h3>
                     <div className="grid gap-2">
                         {license.plugin_lastips.map((ip: string) => (
-                            <div className="flex items-center justify-between bg-gray-100 dark:bg-dark-150 px-4 py-2 rounded">
+                            <div key={ip} className="flex items-center justify-between bg-gray-100 dark:bg-dark-150 px-4 py-2 rounded">
                                 <div>{ip}</div>
                             </div>
                         ))}

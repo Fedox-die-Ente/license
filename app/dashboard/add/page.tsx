@@ -115,7 +115,7 @@ const AddLicense = () => {
                         <span className={'text-sm text-gray-400'}>Add additional information to the license.</span>
 
                         {additionalInformationFields.map(field => (
-                            <div className={'py-1'}>
+                            <div key={field.id} className={'py-1'}>
                                 <Input
                                     key={field.id}
                                     placeholder={field.placeholder}
